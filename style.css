@@ -1,0 +1,241 @@
+/* ==========================================================================
+   1. Сброс и базовые настройки (Reset & Base)
+   ========================================================================== */
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /* Включено обратно для предсказуемых размеров */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    height: 100%;
+    font-size: 16px;
+    line-height: 1;
+    font-family: 'Inter', sans-serif;
+    color: #403F3D;
+    background-color: #E1D4C9;
+}
+
+/* Элементы формы и типографика */
+a {
+    color: #403F3D;
+    text-decoration: none;
+}
+
+ul,
+ol,
+li {
+    list-style-type: none;
+}
+
+img {
+    vertical-align: top;
+    max-width: 100%; /* Защита от выпадания картинок за пределы контейнера */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: inherit;
+    font-size: inherit;
+}
+
+/* ==========================================================================
+   2. Каркас (Layout)
+   ========================================================================== */
+.wrapper {
+    min-height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+._container {
+    max-width: 1360px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   3. Компоненты и Анимации (Components)
+   ========================================================================== */
+/* Анимированное подчеркивание */
+.nav-link,
+.menu-open,
+.contact-link {
+    position: relative;
+}
+
+.nav-link::after,
+.menu-open::after,
+.contact-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #403F3D;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.menu-open:hover::after,
+.contact-link:hover::after {
+    width: 100%;
+}
+
+/* Специфичный стиль для ссылок контактов */
+a.contact-link {
+    color: #E1D4C9;
+}
+
+.contact-link::after {
+    background-color: #E1D4C9;
+}
+
+/* Вспомогательные классы */
+.small-text {
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Фоновые изображения */
+.img_bg {
+    position: relative;
+}
+
+.img_bg > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/***************Header**************************/
+header {
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    min-height: 60px;
+    align-items:center;
+    max-width: 1360px;
+    margin: auto;
+    padding: 20px 15px;
+}
+.nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 455px;
+    padding-left: 0px;
+}
+.nav-item {
+    color: #403F3D;
+    font-family: 'Inter';
+    font-size: 16px;
+    font-weight: 600;
+    font-style: normal;
+    line-height: 150%;
+}
+.nav-item:not(:last-child) {
+    margin: 0px 30px 0px 0px;
+}
+.menu-button {
+    display: flex;
+    width: 187px;
+    justify-content: space-between;
+}
+.theme-switch {
+    display: flex;
+    justify-content: space-between;
+    width: 88px;
+    border: 1px solid #C1B6AD;
+    border-radius: 100px;
+    padding: 4px;
+}
+.theme-switch button {
+    cursor: pointer; /* Делает курсор в виде пальца при наведении */
+    pointer-events: auto; /* Включает кликабельность */
+}
+/* Отключаем перехват клика самой картинкой внутри кнопки */
+.theme-switch img {
+    pointer-events: none;
+}
+.sun {
+    width: 36px;
+    height: 36px;
+    border-radius: 100%;
+    background-color: #B0907A;
+    border: none; 
+}
+.moon {
+    width: 36px;
+    height: 36px;
+    border-radius: 100%;
+    border: none;
+    background-color: #E1D4C9;
+}
+.menu {
+    display: flex;
+    align-items: center;
+}
+.menu-burger {
+    display: none;
+}
+.menu-open {
+    font-family: 'Inter';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+    height: 24px;
+}
+.menu-home {
+    color: transparent;
+    margin-left: 71px;
+    position: absolute;
+    top: 17px;
+}
+.menu-icon {
+    margin: 0px 0px 4px 9px;
+}
+.menu-icon-burger {
+    display: none;
+}
+.burger {
+    display: none;
+    position: relative
+    z-index 50;
+    align-items: center;
+    justify-content: flex-end;
+    width: 44px;
+    height: 44px;
+    border: 1px solid #665F55;
+    border-radius: 100%;
+}
+.burger-line_container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 18px;
+    height: 20px;
+    align-items: center;
+    margin: auto;
+}
+.burger-line {
+    display: flex;
+}
+.menu-burger {
+    display: none;
+}

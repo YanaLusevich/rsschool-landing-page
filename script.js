@@ -6,7 +6,9 @@ const light = document.querySelector('.sun'),
     img_moon = document.querySelector('.theme-switch-moon'),
     header_logo_img = document.querySelector('.header-logo img'),
     menu_icon_cup = document.querySelector('.menu-icon'),
-    enjoy_btn = document.querySelector('.main-block_btn');
+    enjoy_btn = document.querySelector('.main-block_btn'),
+    mobile_img = document.querySelector('.mobile-content_right img'),
+    sliderArrows = document.querySelectorAll('.slider-arrow');
 
 light.addEventListener('click', () => {
     document.body.classList.toggle('dark-bg');
@@ -17,12 +19,19 @@ light.addEventListener('click', () => {
         img_moon.src = './images/header/moon-dark.svg';
         enjoy_btn.style.backgroundColor = '#403F3D';
         enjoy_btn.style.color = '#E1D4C9';
+        mobile_img.src = './images/mobile/mobile-screens-dark.svg';
+        sliderArrows.forEach(arrow => {
+            arrow.style.backgroundColor = '#292826';
+            arrow.style.borderColor = '#C1B6AD';
+        });
     } else {
         header_logo_img.src = './images/header/logo.svg';
         menu_icon_cup.src = './images/header/coffee-cup.svg';
         img_moon.src = './images/header/moon.svg';
         enjoy_btn.style.backgroundColor = '#E1D4C9';
-        enjoy_btn.style.color = '#403F3D'
+        enjoy_btn.style.color = '#403F3D';
+        mobile_img.src = './images/mobile/mobile-screens.svg';
+        slider_arrow.style.backgroundColor = '#E1D4C9';
     }
 
     console.log('Кнопка нажата')

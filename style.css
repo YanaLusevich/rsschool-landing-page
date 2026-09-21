@@ -21,6 +21,7 @@ body {
     font-family: 'Inter', sans-serif;
     color: #403F3D;
     background-color: #E1D4C9;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Элементы формы и типографика */
@@ -186,6 +187,21 @@ header {
     border-radius: 100%;
     border: none;
     background-color: #E1D4C9;
+}
+body.dark-theme {
+    background-color: #292826;
+    color: #E1D4C9;
+}
+.dark-bg{
+    background-color: #292826;
+    color: #E1D4C9;
+}
+.dark-bg a {
+    text-decoration: none;
+    color: #E1D4C9;
+}
+.dark-bg .sun {
+    background-color: #292826;
 }
 .menu {
     display: flex;

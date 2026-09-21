@@ -19,7 +19,7 @@ light.addEventListener('click', () => {
         img_moon.src = './images/header/moon-dark.svg';
         enjoy_btn.style.backgroundColor = '#403F3D';
         enjoy_btn.style.color = '#E1D4C9';
-        mobile_img.src = './images/mobile/mobile-screens-dark.svg';
+        mobile_img.src = './images/mobile_img/mobile-screens-dark.svg';
         sliderArrows.forEach(arrow => {
             arrow.style.backgroundColor = '#292826';
             arrow.style.borderColor = '#C1B6AD';
@@ -30,7 +30,7 @@ light.addEventListener('click', () => {
         img_moon.src = './images/header/moon.svg';
         enjoy_btn.style.backgroundColor = '#E1D4C9';
         enjoy_btn.style.color = '#403F3D';
-        mobile_img.src = './images/mobile/mobile-screens.svg';
+        mobile_img.src = './images/mobile_img/mobile-screens.svg';
         slider_arrow.style.backgroundColor = '#E1D4C9';
     }
 

@@ -681,26 +681,26 @@ h1 {
     width: 36px;
     height: 36px;
     transition: all 1.2s ease;
-    background-image: url(./images/mobile/apple.svg);
+    background-image: url(./images/mobile_img/apple.svg);
     background-size: contain;      
     background-repeat: no-repeat; 
     background-position: center;
 }
 .download-button:hover .app-store {
-    background-image: url(./images/mobile/apple-light.svg);
+    background-image: url(./images/mobile_img/apple-light.svg);
 }
 .google-play {
     display: block;
     width: 36px;
     height: 36px;
     transition: all 1.2s ease;
-    background-image: url(./images/mobile/google_play.svg);
+    background-image: url(./images/mobile_img/google_play.svg);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 .download-button:hover .google-play {
-    background-image: url(./images/mobile/google_play-light.svg);
+    background-image: url(./images/mobile_img/google_play-light.svg);
 }
 .download-button-text {
     display: flex;

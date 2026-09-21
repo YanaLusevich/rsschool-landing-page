@@ -6,7 +6,8 @@
 *::after {
     padding: 0;
     margin: 0;
-    box-sizing: border-box; /* Включено обратно для предсказуемых размеров */
+    box-sizing: border-box;
+    /* Включено обратно для предсказуемых размеров */
 }
 
 html {
@@ -38,10 +39,16 @@ li {
 
 img {
     vertical-align: top;
-    max-width: 100%; /* Защита от выпадания картинок за пределы контейнера */
+    max-width: 100%;
+    /* Защита от выпадания картинок за пределы контейнера */
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: inherit;
     font-size: inherit;
 }
@@ -112,7 +119,7 @@ a.contact-link {
     position: relative;
 }
 
-.img_bg > img {
+.img_bg>img {
     position: absolute;
     top: 0;
     left: 0;
@@ -127,21 +134,24 @@ header {
     left: 0;
     top: 0;
 }
+
 .header-container {
     display: flex;
     justify-content: space-between;
     min-height: 60px;
-    align-items:center;
+    align-items: center;
     max-width: 1360px;
     margin: auto;
     padding: 20px 15px;
 }
+
 .nav-list {
     display: flex;
     flex-wrap: wrap;
     max-width: 455px;
     padding-left: 0px;
 }
+
 .nav-item {
     color: #403F3D;
     font-family: 'Inter';
@@ -150,14 +160,17 @@ header {
     font-style: normal;
     line-height: 150%;
 }
+
 .nav-item:not(:last-child) {
     margin: 0px 30px 0px 0px;
 }
+
 .menu-button {
     display: flex;
     width: 187px;
     justify-content: space-between;
 }
+
 .theme-switch {
     display: flex;
     justify-content: space-between;
@@ -166,21 +179,27 @@ header {
     border-radius: 100px;
     padding: 4px;
 }
+
 .theme-switch button {
-    cursor: pointer; /* Делает курсор в виде пальца при наведении */
-    pointer-events: auto; /* Включает кликабельность */
+    cursor: pointer;
+    /* Делает курсор в виде пальца при наведении */
+    pointer-events: auto;
+    /* Включает кликабельность */
 }
+
 /* Отключаем перехват клика самой картинкой внутри кнопки */
 .theme-switch img {
     pointer-events: none;
 }
+
 .sun {
     width: 36px;
     height: 36px;
     border-radius: 100%;
     background-color: #B0907A;
-    border: none; 
+    border: none;
 }
+
 .moon {
     width: 36px;
     height: 36px;
@@ -188,28 +207,35 @@ header {
     border: none;
     background-color: #E1D4C9;
 }
+
 body.dark-theme {
     background-color: #292826;
     color: #E1D4C9;
 }
-.dark-bg{
+
+.dark-bg {
     background-color: #292826;
     color: #E1D4C9;
 }
+
 .dark-bg a {
     text-decoration: none;
     color: #E1D4C9;
 }
+
 .dark-bg .sun {
     background-color: #292826;
 }
+
 .menu {
     display: flex;
     align-items: center;
 }
+
 .menu-burger {
     display: none;
 }
+
 .menu-open {
     font-family: 'Inter';
     font-size: 16px;
@@ -218,22 +244,25 @@ body.dark-theme {
     line-height: 150%;
     height: 24px;
 }
+
 .menu-home {
     color: transparent;
     margin-left: 71px;
     position: absolute;
     top: 17px;
 }
+
 .menu-icon {
     margin: 0px 0px 4px 9px;
 }
+
 .menu-icon-burger {
     display: none;
 }
+
 .burger {
     display: none;
-    position: relative
-    z-index 50;
+    position: relative z-index 50;
     align-items: center;
     justify-content: flex-end;
     width: 44px;
@@ -241,6 +270,7 @@ body.dark-theme {
     border: 1px solid #665F55;
     border-radius: 100%;
 }
+
 .burger-line_container {
     display: flex;
     flex-wrap: wrap;
@@ -249,9 +279,183 @@ body.dark-theme {
     align-items: center;
     margin: auto;
 }
+
 .burger-line {
     display: flex;
 }
+
 .menu-burger {
     display: none;
+}
+
+/***************Enjoy**************************/
+.enjoy-page {
+    padding: 0px 15px;
+}
+
+.container {
+    max-width: 1360px;
+    height: 644px;
+    margin: 0px auto;
+    border-radius: 40px;
+}
+
+h1 {
+    font-family: 'Inter';
+    font-size: 72px;
+    font-style: normal;
+    font-weight: 600;
+    color: #E1D4C9;
+    line-height: 106%;
+    letter-spacing: 0.001em;
+    max-width: 535px;
+}
+
+.italic-text {
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 600;
+    color: #B0907A;
+}
+
+.title-italic {
+    font-size: 72px;
+}
+
+.title-text {
+    color: #E1D4C9;
+    line-height: 150%;
+    letter-spacing: 0.005em;
+    max-width: 530px;
+    height: 72px;
+    margin: unset;
+}
+
+.enjoy-menu-btn {
+    margin-left: 100px;
+    border: none;
+}
+
+.menu-icon_hover {
+    opacity: 0;
+}
+
+.main-body_item>:hover {
+    opacity: 1;
+}
+
+.main-block_btn {
+  width: 200px;
+  height: 64px;
+  background-color: #E1D4C9;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #403F3D;
+}
+
+.btn-icon {
+  display: none;
+  width: 20px;
+  height: 20px;
+  margin-left: 8px; 
+}
+
+
+.main-block_btn:hover .btn-icon {
+  display: block;
+}
+
+.btn-big-text {
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.btn-size {
+    min-height: 64px;
+    border-radius: 100px;
+    background: #E1D4C9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.big-text {
+    font-family: Inter;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 125%;
+}
+
+.middle-text {
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 125%;
+}
+.main-body_text {
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    color: #E1D4C9;
+}
+.video {
+    position: absolute;
+    /* Убираем из потока, чтобы он стал фоном */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.video-media {
+    position: absolute;
+    width: 100%;
+    border-radius: 40px;
+}
+
+.main-block {
+    position: relative;
+    border-radius: 40px;
+    max-width: 1360px;
+    margin: auto;
+}
+
+.main-block_body {
+    padding: 100px 0px 100px 80px;
+    position: relative;
+    z-index: 2;
+    max-width: 598px;
+}
+
+.main-block_body>*:not(:last-child) {
+    margin: 0px 0px 40px 0px;
+}
+
+.main-block_image {
+    /*position: absolute;*/
+
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    max-width: 1360px;
+    margin-left: 232px;
+}
+
+.main-block_image img {
+    border-radius: 40px;
 }

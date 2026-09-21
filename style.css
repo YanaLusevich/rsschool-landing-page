@@ -1378,6 +1378,7 @@ h1 {
     display: flex;
     max-width: 1400px;
     margin: auto;
+    justify-content: center;
 }
 .cofee-item {
     flex-wrap: wrap;

@@ -213,9 +213,17 @@ body.dark-theme {
     color: #E1D4C9;
 }
 
-.dark-bg {
+body.dark-bg,
+body.dark-bg section,
+body.dark-bg div {
     background-color: #292826;
     color: #E1D4C9;
+}
+
+body.dark-bg .Favourites-Coffee,
+body.dark-bg .main-block_buttons,
+body.dark-bg .main-block_body {
+    background-color: transparent;
 }
 
 .dark-bg a {
@@ -345,31 +353,31 @@ h1 {
 }
 
 .main-block_btn {
-  width: 200px;
-  height: 64px;
-  background-color: #E1D4C9;
-  border-radius: 100px;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  color: #403F3D;
+    width: 200px;
+    height: 64px;
+    background-color: #E1D4C9;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #403F3D;
 }
 
 .btn-icon {
-  display: none;
-  width: 20px;
-  height: 20px;
-  margin-left: 8px; 
+    display: none;
+    width: 20px;
+    height: 20px;
+    margin-left: 8px;
 }
 
 
 .main-block_btn:hover .btn-icon {
-  display: block;
+    display: block;
 }
 
 .btn-big-text {
@@ -404,6 +412,7 @@ h1 {
     font-weight: 600;
     line-height: 125%;
 }
+
 .main-body_text {
     font-family: Inter;
     font-size: 16px;
@@ -411,6 +420,7 @@ h1 {
     font-weight: 400;
     color: #E1D4C9;
 }
+
 .video {
     position: absolute;
     /* Убираем из потока, чтобы он стал фоном */
@@ -432,6 +442,7 @@ h1 {
     border-radius: 40px;
     max-width: 1360px;
     margin: auto;
+    margin-bottom: 80px;
 }
 
 .main-block_body {
@@ -458,4 +469,126 @@ h1 {
 
 .main-block_image img {
     border-radius: 40px;
+}
+
+/**********Favourites-Coffee******************/
+
+.Favourites-Coffee {
+    margin-bottom: 93px;
+}
+
+.fav-coffee-container {
+    max-width: 1345px;
+    margin: auto;
+    text-align: center;
+}
+
+.fav-coffee-img {
+    padding-left: 0px;
+    margin-top: -20px;
+    list-style-type: none;
+}
+
+.fav-coffee-title {
+    margin-top: 100px;
+    margin-bottom: 40px;
+    letter-spacing: 0.015em;
+}
+
+.slider-block {
+    display: flex;
+    justify-content: space-between;
+}
+
+.slider-arrow {
+    flex-shrink: 0;
+    cursor: pointer;
+    max-width: 60px;
+    max-height: 60px;
+    padding: 15px;
+    border-radius: 100%;
+    background-color: #E1D4C9;
+    margin-top: 290px;
+}
+.slider-arrow img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.arrow-left-btn:hover {
+    opacity: 0;
+    transform: rotate(180deg);
+    background-image: url(./images/arrow-right-light.svg);
+}
+
+.slider-arrow:hover {
+    background-color: #665F55;
+
+    background-repeat: no-repeat;
+    transition: 0.3s;
+}
+.fav-img {
+    margin: 0 auto;
+}
+.fav-img,
+.cofee-title,
+.cofee-discription,
+.cofee-price {
+    display: none;
+}
+
+.fav-img.active,
+.cofee-title.active,
+.cofee-discription.active,
+.cofee-price.active {
+    display: block;
+}
+
+.cofee-title-1 {
+    margin: 19px 0px 14px 0px;
+    letter-spacing: 0.02em;
+}
+
+.cofee-discription-1 {
+    max-width: 480px;
+    margin: auto;
+    letter-spacing: 0.01em;
+    line-height: 141%;
+}
+
+.cofee-price-1 {
+    letter-spacing: 0.01em;
+    line-height: 141%;
+    margin-top: 15px;
+}
+
+.control-lines {
+    letter-spacing: 0.5em;
+    line-height: 170%;
+}
+
+.control-btn-1 {
+    width: 40px;
+    border: none;
+    max-width: 40px;
+    height: 4px;
+    border-radius: 100px;
+    background-color: #403F3D;
+    cursor: pointer;
+}
+
+.control-btn {
+    width: 40px;
+    height: 4px;
+    background-color: #C1B6AD;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+.control-btn.active {
+  background-color: #665F55;
+}
+.control-btn:hover {
+    background-color: #b0907a;
 }

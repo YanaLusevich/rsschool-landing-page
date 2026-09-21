@@ -1,12 +1,12 @@
 /* Switch theme */
 
 const light = document.querySelector('.sun'),
-      dark = document.querySelector('.moon'),
-      img_sun = document.querySelector('.theme-switch-sun'),
-      img_moon = document.querySelector('.theme-switch-moon'),
-      header_logo_img = document.querySelector('.header-logo img'),
-      menu_icon_cup = document.querySelector('.menu-icon'),
-      enjoy_btn = document.querySelector('.main-block_btn');
+    dark = document.querySelector('.moon'),
+    img_sun = document.querySelector('.theme-switch-sun'),
+    img_moon = document.querySelector('.theme-switch-moon'),
+    header_logo_img = document.querySelector('.header-logo img'),
+    menu_icon_cup = document.querySelector('.menu-icon'),
+    enjoy_btn = document.querySelector('.main-block_btn');
 
 light.addEventListener('click', () => {
     document.body.classList.toggle('dark-bg');
@@ -26,5 +26,56 @@ light.addEventListener('click', () => {
     }
 
     console.log('Кнопка нажата')
-}) 
+})
 
+/*Slider*/
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    const btnLeft = document.querySelector('.arrow-left');
+    const btnRight = document.querySelector('.arrow-right');
+
+    const images = document.querySelectorAll('.slider img[class^="fav-img"]');
+    const titles = document.querySelectorAll('.slider h3[class^="cofee-title"]');
+    const descriptions = document.querySelectorAll('.slider p[class^="cofee-discription"]');
+    const prices = document.querySelectorAll('.slider p[class^="cofee-price"]');
+    const controls = document.querySelectorAll('.control-lines button');
+
+    let currentIndex = 0;
+
+
+    function showSlide(index) {
+
+        images.forEach(img => img.classList.remove('active'));
+        titles.forEach(title => title.classList.remove('active'));
+        descriptions.forEach(desc => desc.classList.remove('active'));
+        prices.forEach(price => price.classList.remove('active'));
+        controls.forEach(ctrl => ctrl.classList.remove('active'));
+
+        if (images[index]) images[index].classList.add('active');
+        if (titles[index]) titles[index].classList.add('active');
+        if (descriptions[index]) descriptions[index].classList.add('active');
+        if (prices[index]) prices[index].classList.add('active');
+        if (controls[index]) controls[index].classList.add('active');
+    }
+
+    if (btnRight) {
+        btnRight.addEventListener('click', () => {
+            currentIndex++;
+            if (currentIndex >= images.length) {
+                currentIndex = 0;
+            }
+            showSlide(currentIndex);
+        });
+    }
+
+    if (btnLeft) {
+        btnLeft.addEventListener('click', () => {
+            currentIndex--;
+            if (currentIndex < 0) {
+                currentIndex = images.length - 1;
+            }
+            showSlide(currentIndex);
+        });
+    }
+});

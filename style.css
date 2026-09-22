@@ -12,6 +12,12 @@
 
 html {
     scroll-behavior: smooth;
+    background-color: #E1D4C9;
+    transition: background-color 0.3s ease;
+}
+
+html.dark-bg {
+    background-color: #292826;
 }
 
 html,
@@ -232,8 +238,23 @@ body.dark-bg .footer-container {
     color: #E1D4C9;
 }
 
-.dark-bg .sun {
+.dark-bg .sun,
+.dark-bg .button-menu {
     background-color: #292826;
+}
+
+
+/* Dark theme - приватная иконка стили */
+.dark-bg .twitter,
+.dark-bg .instagram,
+.dark-bg .facebook {
+    filter: brightness(0) invert(1);
+}
+
+.dark-bg .btn-coffee,
+.dark-bg .btn-tea,
+.dark-bg .btn-dessert {
+    filter: brightness(0) invert(1);
 }
 
 .menu {
@@ -1295,6 +1316,8 @@ h1 {
     height: 30px;
     transition: all 1.2s ease;
     background-image: url(./images/menu/icon-coffee.svg);
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .btn-tea {
     display: block;
@@ -1303,6 +1326,7 @@ h1 {
     transition: all 1.2s ease;
     background-image: url(./images/menu/icon-tea.svg);
     background-repeat: no-repeat;
+    background-position: center;
 }
 .btn-dessert {
     display: block;
@@ -1310,6 +1334,8 @@ h1 {
     height: 30px;
     transition: all 1.2s ease;
     background-image: url(./images/menu/icon-des.svg);
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .coffee-buttons {
     display: flex;
@@ -1383,7 +1409,7 @@ h1 {
 .cofee-item {
     flex-wrap: wrap;
     display: flex;
-    max-width: 310px;
+    width: 22%;
     height: 506px;
     margin: 20px 38px 20px 0px;
     border: 1px solid;
@@ -1524,7 +1550,7 @@ h1 {
 .tea-item {
     flex-wrap: wrap;
     display: flex;
-    max-width: 310px;
+    width: 22%;
     height: 506px;
     margin: 20px 38px 20px 0px;
     border: 1px solid;
@@ -1582,7 +1608,7 @@ h1 {
     flex-wrap: wrap;
     display: flex;
     width: 22%;
-    height: 490px;
+    height: 506px;
     margin: 20px 38px 20px 0px;
     border: 1px solid;
     border-radius: 40px;

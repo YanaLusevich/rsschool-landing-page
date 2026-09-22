@@ -4,6 +4,13 @@
 const isMenuPage = window.location.pathname.includes('page_menu');
 const basePath = isMenuPage ? '../images' : './images';
 
+// Загружаем сохраненную тему из localStorage при открытии страницы
+const savedTheme = localStorage.getItem('theme') || 'light';
+if (savedTheme === 'dark') {
+    document.body.classList.add('dark-bg');
+    document.documentElement.classList.add('dark-bg');
+}
+
 const light = document.querySelector('.sun'),
     dark = document.querySelector('.moon'),
     img_sun = document.querySelector('.theme-switch-sun'),
@@ -22,60 +29,66 @@ const light = document.querySelector('.sun'),
     btnTea = document.querySelector('.btn-tea'),
     btnDessert = document.querySelector('.btn-dessert');
 
+// Функция для применения темы
+function applyTheme(isDark) {
+    if (isDark) {
+        // Основные изображения
+        if (header_logo_img) header_logo_img.src = `${basePath}/header/logo_dark.svg`;
+        if (menu_icon_cup) menu_icon_cup.src = `${basePath}/header/coffee-cup_dark.svg`;
+        if (img_moon) img_moon.src = `${basePath}/header/moon-dark.svg`;
+        if (enjoy_btn) {
+            enjoy_btn.style.backgroundColor = '#403F3D';
+            enjoy_btn.style.color = '#E1D4C9';
+        }
+        if (mobile_img) mobile_img.src = `${basePath}/mobile_img/mobile-screens-dark.svg`;
+        
+        // Стрелки слайдера
+        sliderArrows.forEach(arrow => {
+            arrow.style.backgroundColor = '#292826';
+            arrow.style.borderColor = '#C1B6AD';
+        });
+
+        // Кнопки загрузки (для темной темы используем светлые версии)
+        if (appStore) appStore.style.backgroundImage = `url(${basePath}/mobile_img/apple-light.svg)`;
+        if (googlePlay) googlePlay.style.backgroundImage = `url(${basePath}/mobile_img/google_play-light.svg)`;
+    } else {
+        // Основные изображения
+        if (header_logo_img) header_logo_img.src = `${basePath}/header/logo.svg`;
+        if (menu_icon_cup) menu_icon_cup.src = `${basePath}/header/coffee-cup.svg`;
+        if (img_moon) img_moon.src = `${basePath}/header/moon.svg`;
+        if (enjoy_btn) {
+            enjoy_btn.style.backgroundColor = '#E1D4C9';
+            enjoy_btn.style.color = '#403F3D';
+        }
+        if (mobile_img) mobile_img.src = `${basePath}/mobile_img/mobile-screens.svg`;
+        
+        // Стрелки слайдера
+        sliderArrows.forEach(arrow => {
+            arrow.style.backgroundColor = '#E1D4C9';
+            arrow.style.borderColor = '#403F3D';
+        });
+
+        // Кнопки загрузки на светлую тему
+        if (appStore) appStore.style.backgroundImage = `url(${basePath}/mobile_img/apple.svg)`;
+        if (googlePlay) googlePlay.style.backgroundImage = `url(${basePath}/mobile_img/google_play.svg)`;
+    }
+}
+
+// Применяем сохраненную тему при загрузке
+applyTheme(savedTheme === 'dark');
+
 if (light) {
     light.addEventListener('click', () => {
         document.body.classList.toggle('dark-bg');
         document.documentElement.classList.toggle('dark-bg');
 
-        if (document.body.classList.contains('dark-bg')) {
-            // Основные изображения
-            if (header_logo_img) header_logo_img.src = `${basePath}/header/logo_dark.svg`;
-            if (menu_icon_cup) menu_icon_cup.src = `${basePath}/header/coffee-cup_dark.svg`;
-            if (img_moon) img_moon.src = `${basePath}/header/moon-dark.svg`;
-            if (enjoy_btn) {
-                enjoy_btn.style.backgroundColor = '#403F3D';
-                enjoy_btn.style.color = '#E1D4C9';
-            }
-            if (mobile_img) mobile_img.src = `${basePath}/mobile_img/mobile-screens-dark.svg`;
-            
-            // Стрелки слайдера
-            sliderArrows.forEach(arrow => {
-                arrow.style.backgroundColor = '#292826';
-                arrow.style.borderColor = '#C1B6AD';
-            });
-
-            // Кнопки загрузки (для темной темы используем светлые версии)
-            if (appStore) appStore.style.backgroundImage = `url(${basePath}/mobile_img/apple-light.svg)`;
-            if (googlePlay) googlePlay.style.backgroundImage = `url(${basePath}/mobile_img/google_play-light.svg)`;
-
-            //Смена иконок меню
-
-            btnCoffee.backgroundImage = 'url(./images/menu/icon-coffee-dark.svg)'
-        } else {
-            // Основные изображения
-            if (header_logo_img) header_logo_img.src = `${basePath}/header/logo.svg`;
-            if (menu_icon_cup) menu_icon_cup.src = `${basePath}/header/coffee-cup.svg`;
-            if (img_moon) img_moon.src = `${basePath}/header/moon.svg`;
-            if (enjoy_btn) {
-                enjoy_btn.style.backgroundColor = '#E1D4C9';
-                enjoy_btn.style.color = '#403F3D';
-            }
-            if (mobile_img) mobile_img.src = `${basePath}/mobile_img/mobile-screens.svg`;
-
-            //Смена иконок меню
-
-            btnCoffee.backgroundImage = 'url(./images/menu/icon-coffee.svg)'
-            
-            // Стрелки слайдера
-            sliderArrows.forEach(arrow => {
-                arrow.style.backgroundColor = '#E1D4C9';
-                arrow.style.borderColor = '#403F3D';
-            });
-
-            // Кнопки загрузки на светлую тему
-            if (appStore) appStore.style.backgroundImage = `url(${basePath}/mobile_img/apple.svg)`;
-            if (googlePlay) googlePlay.style.backgroundImage = `url(${basePath}/mobile_img/google_play.svg)`;
-        }
+        const isDarkMode = document.body.classList.contains('dark-bg');
+        
+        // Сохраняем выбор темы в localStorage
+        localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+        
+        // Применяем тему
+        applyTheme(isDarkMode);
 
         console.log('Кнопка нажата')
     });

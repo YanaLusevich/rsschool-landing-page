@@ -77,21 +77,19 @@ function applyTheme(isDark) {
 // Применяем сохраненную тему при загрузке
 applyTheme(savedTheme === 'dark');
 
+function setTheme(isDark) {
+    document.body.classList.toggle('dark-bg', isDark);
+    document.documentElement.classList.toggle('dark-bg', isDark);
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    applyTheme(isDark);
+}
+
 if (light) {
-    light.addEventListener('click', () => {
-        document.body.classList.toggle('dark-bg');
-        document.documentElement.classList.toggle('dark-bg');
+    light.addEventListener('click', () => setTheme(false));
+}
 
-        const isDarkMode = document.body.classList.contains('dark-bg');
-        
-        // Сохраняем выбор темы в localStorage
-        localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-        
-        // Применяем тему
-        applyTheme(isDarkMode);
-
-        console.log('Кнопка нажата')
-    });
+if (dark) {
+    dark.addEventListener('click', () => setTheme(true));
 }
 
 /*Slider*/

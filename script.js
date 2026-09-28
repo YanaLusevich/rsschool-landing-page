@@ -29,6 +29,16 @@ const light = document.querySelector('.sun'),
     btnTea = document.querySelector('.btn-tea'),
     btnDessert = document.querySelector('.btn-dessert');
 
+/* Burger menu */
+const burger = document.getElementById('burger'),
+    burger_line_container = document.querySelector('.burger-line_container'),
+    header_menu = document.querySelector('.header-nav'),
+    burger_line_first = document.querySelector('.burger-line_first'),
+    burger_line_second = document.querySelector('.burger-line_second'),
+    menu_burger = document.querySelector('.menu-burger'),
+    navLink = document.querySelectorAll('.nav-link'),
+    body = document.getElementById('body');
+
 // Функция для применения темы
 function applyTheme(isDark) {
     if (isDark) {
@@ -41,7 +51,7 @@ function applyTheme(isDark) {
             enjoy_btn.style.color = '#E1D4C9';
         }
         if (mobile_img) mobile_img.src = `${basePath}/mobile_img/mobile-screens-dark.svg`;
-        
+
         // Стрелки слайдера
         sliderArrows.forEach(arrow => {
             arrow.style.backgroundColor = '#292826';
@@ -61,7 +71,7 @@ function applyTheme(isDark) {
             enjoy_btn.style.color = '#403F3D';
         }
         if (mobile_img) mobile_img.src = `${basePath}/mobile_img/mobile-screens.svg`;
-        
+
         // Стрелки слайдера
         sliderArrows.forEach(arrow => {
             arrow.style.backgroundColor = '#E1D4C9';
@@ -143,3 +153,119 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+//Burger
+
+burger.addEventListener('click', () => {
+
+    body.classList.toggle('lock');
+    burger_line_first.classList.toggle('open');
+    burger_line_second.classList.toggle('open');
+    menu_burger.classList.toggle('open');
+
+});
+
+function doActiveMenu() {
+    burger_line_container.classList.toggle('open');
+    header_menu.classList.toggle('open');
+    body.classList.remove('lock');
+
+}
+
+navLink.forEach((element) => {
+    element.addEventListener('click', doActiveMenu);
+});
+
+burger.addEventListener('click', doActiveMenu);
+
+// Modal & card .json
+
+let productsData = [];
+
+// 1. Загрузка данных из JSON
+async function loadProducts() {
+    try {
+        const response = await fetch('./products.json');
+        productsData = await response.json();
+        renderCards(productsData);
+    } catch (error) {
+        console.error('Ошибка загрузки данных:', error);
+    }
+}
+
+// 2. Генерация карточек в DOM
+function renderCards(products) {
+    const container = document.getElementById('grid-container');
+    container.innerHTML = '';
+
+    const coffeeProducts = products.filter(product => product.category === 'coffee');
+
+    coffeeProducts.forEach((product, index) => {
+        const card = document.createElement('div');
+        card.classList.add('cofee-item');
+
+        const imagePath = `../images/menu/${product.category}-${index + 1}.png`;
+
+        card.innerHTML = `
+            <img class="coffee-img" src="${imagePath}" alt="${product.name}">
+            <h4 class="coffee-img-title">${product.name}</h4>
+            <p class="coffee-img-discription">${product.description}</p>
+            <span class="coffee-img-price">$${product.price}</span>
+        `;
+
+        // Слушатель клика для открытия модального окна
+        card.addEventListener('click', () => {
+            console.log('Клик работает');
+            openModal(product, imagePath);
+        });
+
+        // ДОБАВЛЯЕМ КАРТОЧКУ НА СТРАНИЦУ
+        container.appendChild(card);
+    });
+}
+
+// 3. Заполнение и открытие модального окна
+function openModal(product, imagePath) {
+    console.log('openModal запустилась');
+    const overlay = document.getElementById('modal-overlay');
+
+    // Используем imagePath вместо product.image
+    document.getElementById('modal-img').src = imagePath;
+    document.getElementById('modal-title').innerText = product.name;
+    document.getElementById('modal-description').innerText = product.description;
+    document.getElementById('modal-price').innerText = `$${product.price}`;
+    // document.getElementById('modal-sizes-title').innerText = 'Size';
+
+    // Рендер опций (размеров)
+    const sizesContainer = document.getElementById('modal-sizes');
+    if (sizesContainer && product.sizes) {
+        sizesContainer.innerHTML = Object.entries(product.sizes)
+            .map(([key, value]) => `<button class="size-btn">
+                                      <span class="size-icon">${key.toUpperCase()}</span>
+                                      <span class="size-text">${value.size}</span>
+                                    </button>`)
+            .join('');
+    }
+
+    overlay.classList.remove('hidden');
+
+    const additivesContainer = document.getElementById('modal-additives');
+    if (additivesContainer && product.additives) {
+        additivesContainer.innerHTML = Object.entries(product.additives)
+            .map(([key, value]) => `<button class="additives-btn">
+                                      <span class="additives-icon">${Number(key) + 1}</span>
+                                      <span class="additives-text">${value.name}</span>
+                                    </button>`)
+            .join('');
+    }
+
+    overlay.classList.remove('hidden');
+}
+
+// 4. Закрытие модального окна
+document.getElementById('modal-close-btn').addEventListener('click', () => {
+    document.getElementById('modal-overlay').classList.add('hidden');
+});
+
+// Инициализация
+loadProducts();
